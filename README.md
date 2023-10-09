@@ -122,3 +122,40 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
 
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
+
+
+## 📘 Spring boot Swagger 적용
+
+1) Swagger를 작성하는 법에는 두가지가 있다.  
+Springfox, Springdoc
+그럼 무엇을 사용하는것이 좋은가..  
+꾸준히 지원을 해주는게 가장 중요한 요소이라고 볼때
+현재 Springfox는 2020년이 마지막 이다.  
+그렇지만 springdoc같은 경우는 지금까지 계속 업데이트가 되고있다.
+
+💡springDoc github
+      https://github.com/springdoc/springdoc-openapi   
+   
+
+2-1) Springdoc 버전별 depnedency  (spring 2.x.x)
+
+           <dependency>
+              <groupId>org.springdoc</groupId>
+              <artifactId>springdoc-openapi-webmvc-core</artifactId>
+              <version>last-release-version</version>
+           </dependency>
+2-2)Springdoc 버전별 depnedency  (spring 3.x.x)
+
+           <dependency>
+              <groupId>org.springdoc</groupId>
+              <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+              <version>last-release-version</version>
+           </dependency>
+
+
+3) 접속경로
+
+       /swagger-ui/index.html
+
+### 참고블로그\
+        https://colabear754.tistory.com/50
