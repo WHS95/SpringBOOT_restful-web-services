@@ -62,3 +62,21 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
 3) 서버자체의 문제가 발생한경우(이 경우가 안생기도록 해야함)     
     
     500 — Server Error  
+
+4) 반영 예제
+ 
+
+     @PostMapping(path = "/user")
+      public ResponseEntity<Object> saveUserInfo(@RequestBody User user){
+
+           User savedUser =  service.saveUserInfo(user);
+
+           //응답값에 요청 결과 location url 보내는 법 
+           URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                   .path("/{id}")
+                   .buildAndExpand(savedUser.getId())
+                   .toUri();
+
+           //API 응답값 반영
+           return ResponseEntity.created(location).build();
+   

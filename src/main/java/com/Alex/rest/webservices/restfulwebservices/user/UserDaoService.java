@@ -2,7 +2,6 @@ package com.Alex.rest.webservices.restfulwebservices.user;
 
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +30,9 @@ public class UserDaoService {
         return users.stream().filter(predicate).findFirst().get();
     }
 
-    public void saveUserInfo(User user) {
+    public User saveUserInfo(User user) {
         users.add(new User(++userIdCount, user.getName(), user.getBirthDate()));
+        return findOne(userIdCount);
     }
 
 }
