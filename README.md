@@ -47,23 +47,23 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
 
 ## 📘 Sprign boot API 응답값 정리
 
-1) 200번대는 성공했을때의 경우들   
+### 1:  200번대는 성공했을때의 경우들   
     
     200 - 요청에 대한 결과가 아무 이상 없이 성공했을때  
     201 — Created (데이터 생성을 완료 했을 경우)  
     204 — No Content (데이터를 업데이트 할때 업데이트 대상이 없는 경우)  
 
-2) 400클라이어언에서 서버로의 요청 리소스들이 서버와 불일치 하는경우  
+### 2:  400클라이어언에서 서버로의 요청 리소스들이 서버와 불일치 하는경우  
    
     401 — Unauthorized (when authorization fails)   
     400 — Bad Request (such as validation error)   
     404 — Resource Not Found  
 
-3) 서버자체의 문제가 발생한경우(이 경우가 안생기도록 해야함)     
+### 3:  서버자체의 문제가 발생한경우(이 경우가 안생기도록 해야함)     
     
     500 — Server Error  
 
-4) 반영 예제
+### 4: 반영 예제
  
 
      @PostMapping(path = "/user")
@@ -82,7 +82,7 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
 
 ## 📘 Validation 예외처리 예제
 
-1) @Validation 의존성 주입
+### 1: @Validation 의존성 주입
 
    	<!--Validation	check	-->
    	<dependency>
@@ -90,7 +90,7 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
    		<artifactId>spring-boot-starter-validation</artifactId>
    	</dependency>
 
-2) @Validation 적용  
+### 2:  @Validation 적용  
 
 
     2-1) Controller
@@ -107,8 +107,7 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
         private LocalDateTime birthDate;
 
 
-
-3) ExceptionHandler 설정
+### 3:  ExceptionHandler 설정
 
 
     @Override
@@ -126,25 +125,25 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
 
 ## 📘 Spring boot Swagger 적용
 
-1) Swagger를 작성하는 법에는 두가지가 있다.  
-Springfox, Springdoc
-그럼 무엇을 사용하는것이 좋은가..  
-꾸준히 지원을 해주는게 가장 중요한 요소이라고 볼때
-현재 Springfox는 2020년이 마지막 이다.  
-그렇지만 springdoc같은 경우는 지금까지 계속 업데이트가 되고있다.
+### 1:  Swagger를 작성하는 법에는 두가지가 있다.  
+        Springfox, Springdoc
+        그럼 무엇을 사용하는것이 좋은가..  
+        꾸준히 지원을 해주는게 가장 중요한 요소이라고 볼때
+        현재 Springfox는 2020년이 마지막 이다.  
+        그렇지만 springdoc같은 경우는 지금까지 계속 업데이트가 되고있다.
 
 💡springDoc github
       https://github.com/springdoc/springdoc-openapi   
-   
 
-2-1) Springdoc 버전별 depnedency  (spring 2.x.x)
+
+### 2-1: Springdoc 버전별 depnedency  (spring 2.x.x)
 
            <dependency>
               <groupId>org.springdoc</groupId>
               <artifactId>springdoc-openapi-webmvc-core</artifactId>
               <version>last-release-version</version>
            </dependency>
-2-2)Springdoc 버전별 depnedency  (spring 3.x.x)
+### 2-2: Springdoc 버전별 depnedency  (spring 3.x.x)
 
            <dependency>
               <groupId>org.springdoc</groupId>
@@ -153,9 +152,9 @@ Springfox, Springdoc
            </dependency>
 
 
-3) 접속경로
+### 3: 접속경로
 
        /swagger-ui/index.html
 
-### 참고블로그\
+### 💡참고블로그
         https://colabear754.tistory.com/50
