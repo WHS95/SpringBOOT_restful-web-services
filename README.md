@@ -44,3 +44,21 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+## 📘 Sprign boot API 응답값 정리
+
+1) 200번대는 성공했을때의 경우들   
+    
+    200 - 요청에 대한 결과가 아무 이상 없이 성공했을때  
+    201 — Created (데이터 생성을 완료 했을 경우)  
+    204 — No Content (데이터를 업데이트 할때 업데이트 대상이 없는 경우)  
+
+2) 400클라이어언에서 서버로의 요청 리소스들이 서버와 불일치 하는경우  
+   
+    401 — Unauthorized (when authorization fails)   
+    400 — Bad Request (such as validation error)   
+    404 — Resource Not Found  
+
+3) 서버자체의 문제가 발생한경우(이 경우가 안생기도록 해야함)     
+    
+    500 — Server Error  
