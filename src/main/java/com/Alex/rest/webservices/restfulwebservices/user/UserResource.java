@@ -2,6 +2,7 @@ package com.Alex.rest.webservices.restfulwebservices.user;
 
 
 import com.Alex.rest.webservices.restfulwebservices.exception.UserNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -33,10 +34,8 @@ public class UserResource {
     }
 
     @PostMapping(path = "/user")
-    public ResponseEntity<Object> saveUserInfo(@RequestBody User user){
-
+    public ResponseEntity<Object> saveUserInfo(@Valid @RequestBody User user){
         User savedUser =  service.saveUserInfo(user);
-
         //응답값에 요청 결과 location url 보내는 법
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")

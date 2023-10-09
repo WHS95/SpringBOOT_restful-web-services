@@ -1,6 +1,9 @@
 package com.Alex.rest.webservices.restfulwebservices.user;
 
-import java.time.LocalDate;
+
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDateTime;
 
 
@@ -16,7 +19,10 @@ public class User {
     }
 
     private Integer id;
+    @Size(min=2, message = "name character is 2 over")
     private String name;
+
+    @Past(message = "birthDate not over the current")
     private LocalDateTime birthDate;
 
     public Integer getId() {
