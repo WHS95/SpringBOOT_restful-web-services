@@ -47,4 +47,8 @@ public class UserResource {
         return ResponseEntity.created(location).build();
     }
 
+    @DeleteMapping(path = "/user/{id}")
+    public void deleteUserInfo(@PathVariable Integer id){
+        service.deleteById(id);
+    }
 }
