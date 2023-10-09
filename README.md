@@ -79,4 +79,46 @@ Spring Boot Starter Web 라이브러리가 다가져온다.
 
            //API 응답값 반영
            return ResponseEntity.created(location).build();
-   
+
+## 📘 Validation 예외처리 예제
+
+1) @Validation 의존성 주입
+
+   	<!--Validation	check	-->
+   	<dependency>
+   		<groupId>org.springframework.boot</groupId>
+   		<artifactId>spring-boot-starter-validation</artifactId>
+   	</dependency>
+
+2) @Validation 적용  
+
+
+    2-1) Controller
+       @PostMapping(path = "/user")
+       public ResponseEntity<Object> saveUserInfo(@Valid @RequestBody User user){
+       }
+
+
+    2-2) DTO에 적용
+        @Size(min=2, message = "name character is 2 over")
+        private String name;
+    
+        @Past(message = "birthDate not over the current")
+        private LocalDateTime birthDate;
+
+
+
+3) ExceptionHandler 설정
+
+
+    @Override
+    public ResponseEntity<Object> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException e, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        ErrorDetails errorDetails =
+                new ErrorDetails(LocalDateTime.now()
+                        ,"TotalErrorsCount: "+ e.getErrorCount() +"/ FirstErrorMessage: "+ e.getFieldError().getDefaultMessage()
+                        ,request.getDescription(false));
+
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
