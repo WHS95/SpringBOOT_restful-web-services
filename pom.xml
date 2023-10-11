@@ -39,12 +39,12 @@
 			<version>2.2.0</version>
 		</dependency>
 
-		<!--XML 형식을 다루기 위해서-->
-		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>2.15.2</version>
-		</dependency>
+<!--		&lt;!&ndash;XML 형식을 다루기 위해서&ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.fasterxml.jackson.dataformat</groupId>-->
+<!--			<artifactId>jackson-dataformat-xml</artifactId>-->
+<!--			<version>2.15.2</version>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

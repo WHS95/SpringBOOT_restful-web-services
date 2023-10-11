@@ -178,3 +178,19 @@ url 매핑잘못되었을때 에러 화면은 누가 다루나 그것은 ErrorMv
       Do the server validations based on Accept headers.
 
 
+### 📘 Spring boot 국제화 
+
+
+request Header 부분에 Accept-Language설정에 따라 응답값 변화 
+
+
+    @GetMapping(path = "/hello-world-interantionalized")
+    public String HelloWorldInterantionalized(){
+        Locale locale = LocaleContextHolder.getLocale();
+        return  messageSource.getMessage("good.morning.message",null,"Default Message",locale);
+    }
+
+resources 패키지 아래에 아래와 같으 파일생성
+
+      messages_nl.properties 
+
