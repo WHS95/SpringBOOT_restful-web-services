@@ -46,6 +46,15 @@
 <!--			<version>2.15.2</version>-->
 <!--		</dependency>-->
 
+
+		<!--Hateoas 설정-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

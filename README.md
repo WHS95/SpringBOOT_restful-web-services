@@ -207,3 +207,32 @@ resources 패키지 아래에 아래와 같으 파일생성
 
       각각의 장단점이 있으며 정답은 없다.
       그렇지만 확실한것은 기업마다의 통일성이 있어야한다는것이다.
+
+### 📘 Hateoas 란?
+
+단순히 API를 통해 데이터를 주고 받는 것에 그치는 것이 아니라  
+유기적으로 통신을 하기위한 것 
+
+아래 예시와같이 하나의 상세 조회를 할경우 어떻게 하면 전체를 볼수있는지  
+등등을 알려주어 단순 일방향이 아닌 흐름을 제시하는것
+
+            {
+                  id: 2,
+                  name: "Sam",
+                  birthDate: "2020-10-14T16:39:41.239345",
+                        _links: {
+                              all-users: {
+                                    href: "http://localhost:8080/user"
+                              }
+                  }
+            }
+
+#### Dependency
+
+		<!--Hateoas 설정-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+
+
