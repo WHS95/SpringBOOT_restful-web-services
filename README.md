@@ -236,3 +236,44 @@ resources 패키지 아래에 아래와 같으 파일생성
 		</dependency>
 
 
+### 📘 Response(JSON) 필터링 하는 법
+
+#### 1. 정적  @JsonProperty  , @JsonIgnore
+
+      public class SomeBean {
+
+          //@JsonProperty를 사용하면 해당 값의 명칭을 변화 할 수있다.
+          @JsonProperty("customBean")
+          private  String bean1;
+          private  String bean2;
+      
+          //@JsonIgnore을 사용하면 해당 값을 반환 되지 않느다.
+          @JsonIgnore
+          private  String bean3;
+
+
+#### 2. 동적 MappingJacksonValue, SimpleBeanPropertyFilter (jackson)
+
+      //동적 응담 필터링 적용
+      //MappingJacksonValue
+      //SimpleBeanPropertyFilter
+      @GetMapping("/filtering") //field2
+      public MappingJacksonValue filteringDynic() {
+
+        SomeBeanDynic someBean = new SomeBeanDynic("value1","value2", "value3");
+
+        //MappingJacksonValue 을 이용하여 응답값 필터링
+        MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(someBean);
+
+        //bean1,bean2 키값만 내보내는 필터 적용
+        SimpleBeanPropertyFilter filter =
+                SimpleBeanPropertyFilter.filterOutAllExcept("bean1","bean2");
+
+        //SomeBeanFilter 명칭은 응답할 빈에 값과 일치해야함 @JsonFilter("SomeBeanFilter") 붙인
+        FilterProvider filters =
+                new SimpleFilterProvider().addFilter("SomeBeanFilter", filter );
+
+        mappingJacksonValue.setFilters(filters );
+
+                  return mappingJacksonValue;
+            }
