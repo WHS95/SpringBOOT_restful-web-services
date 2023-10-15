@@ -1,7 +1,6 @@
-package com.Alex.rest.webservices.restfulwebservices;
+package com.Alex.rest.webservices.restfulwebservices.helloWorld;
 
 
-import org.springframework.cglib.core.Local;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;

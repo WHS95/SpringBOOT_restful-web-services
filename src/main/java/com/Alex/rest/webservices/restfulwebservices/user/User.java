@@ -1,13 +1,31 @@
 package com.Alex.rest.webservices.restfulwebservices.user;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-
+@Entity(name ="user_detail")
 public class User {
+
+    @Id
+    @GeneratedValue
+    private Integer id;
+    @Size(min=2, message = "name character is 2 over")
+    private String name;
+
+    @Past(message = "birthDate not over the current")
+    private LocalDateTime birthDate;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> post;
 
     public User() {
     }
@@ -17,13 +35,6 @@ public class User {
         this.name = name;
         this.birthDate = birthDate;
     }
-
-    private Integer id;
-    @Size(min=2, message = "name character is 2 over")
-    private String name;
-
-    @Past(message = "birthDate not over the current")
-    private LocalDateTime birthDate;
 
     public Integer getId() {
         return id;
