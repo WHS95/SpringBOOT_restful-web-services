@@ -1,4 +1,7 @@
 package com.Alex.rest.webservices.restfulwebservices.jpa;
 
-public interface PostRespository {
+import com.Alex.rest.webservices.restfulwebservices.user.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PostRespository  extends JpaRepository<Post,Integer> {
 }

@@ -30,6 +30,14 @@ public class User {
     public User() {
     }
 
+    public List<Post> getPost() {
+        return post;
+    }
+
+    public void setPost(List<Post> post) {
+        this.post = post;
+    }
+
     public User(Integer id, String name, LocalDateTime birthDate) {
         this.id = id;
         this.name = name;
