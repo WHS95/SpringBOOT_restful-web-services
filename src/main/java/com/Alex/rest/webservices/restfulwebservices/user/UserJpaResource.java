@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.TimeZone;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -105,5 +109,16 @@ public class UserJpaResource {
 
         //API 응답값 반영
         return ResponseEntity.created(location).build();
+    }
+
+    public static void main(String[] args) {
+  
+        LocalDateTime mongoDBDateTime =LocalDateTime.now();
+        ZoneId utcTimeZone = ZoneId.of("UTC");
+        ZoneId seoulTime = ZoneId.of("Asia/Seoul");
+        ZoneId localTimeZone = ZoneId.systemDefault();
+        ZonedDateTime zonedDateTime1 = mongoDBDateTime.atZone(utcTimeZone).withZoneSameInstant(localTimeZone);
+        ZonedDateTime zonedDateTime2 = mongoDBDateTime.atZone(seoulTime).withZoneSameInstant(localTimeZone);
+        System.out.println("zonedDateTime = " + zonedDateTime1);
     }
 }
