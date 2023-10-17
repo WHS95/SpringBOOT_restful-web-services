@@ -39,11 +39,11 @@ public class MongoConfig {
 //        ));
 //    }
 
-    @Bean
-    public MongoCustomConversions customConversions() {
-        List<Converter<?, ?>> converters = new ArrayList<>();
-        converters.add(new ZonedDateTimeReadConverter());
-        converters.add(new ZonedDateTimeWriteConverter());
-        return new MongoCustomConversions(converters);
-    }
+//    @Bean
+//    public MongoCustomConversions customConversions() {
+//        List<Converter<?, ?>> converters = new ArrayList<>();
+//        converters.add(new ZonedDateTimeReadConverter());
+//        converters.add(new ZonedDateTimeWriteConverter());
+//        return new MongoCustomConversions(converters);
+//    }
 }

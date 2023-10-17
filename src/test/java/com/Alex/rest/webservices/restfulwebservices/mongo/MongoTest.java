@@ -14,11 +14,11 @@ class MongoTest {
 
     @Test
     void saveZoneDateTime() {
-        mongo.saveZoneDateTime2();
+        mongo.saveZoneDateTime();
     }
 
     @Test
     void findZoneDateTime() {
-        mongo.findZoneDateTime();
+        mongo.findZoneDateTime4();
     }
 }

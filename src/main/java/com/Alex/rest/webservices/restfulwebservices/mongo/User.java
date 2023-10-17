@@ -3,6 +3,7 @@ package com.Alex.rest.webservices.restfulwebservices.mongo;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
@@ -10,7 +11,8 @@ import java.time.ZonedDateTime;
 public class User {
 
     private String name;
-    private ZonedDateTime date;
+    private Instant instant;
+    private LocalDateTime localDateTimec;
 
     public String getName() {
         return name;
@@ -20,11 +22,19 @@ public class User {
         this.name = name;
     }
 
-    public ZonedDateTime getDate() {
-        return date;
+    public Instant getInstant() {
+        return instant;
     }
 
-    public void setDate(ZonedDateTime date) {
-        this.date = date;
+    public void setInstant(Instant instant) {
+        this.instant = instant;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return localDateTimec;
+    }
+
+    public void setLocalDateTimec(LocalDateTime localDateTimec) {
+        this.localDateTimec = localDateTimec;
     }
 }
