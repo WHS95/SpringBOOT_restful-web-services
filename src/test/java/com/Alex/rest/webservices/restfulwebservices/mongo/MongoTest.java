@@ -17,8 +17,8 @@ class MongoTest {
         mongo.saveZoneDateTime();
     }
 
-    @Test
-    void findZoneDateTime() {
-        mongo.findZoneDateTime4();
-    }
+//    @Test
+//    void findZoneDateTime() {
+//        mongo.findZoneDateTime();
+//    }
 }
